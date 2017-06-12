@@ -1,0 +1,27 @@
+<?Php
+
+// 6-12-17 smccombs
+// This is a mod for Jobify Wordpress Theme (job posting system)
+// The account page is managed by WooCommerce
+// WooCommerce does not display a link to the users submitted jobs.
+// This edit will allow you to replace the current navigation links.
+
+// Add this to your theme child functions.php file.
+
+// $items['manage-jobs']
+// This will be the third part of the URL example.com/myaccount/manage-jobs/
+// ( 'Your Jobs', 'iconic' )
+// Your Jobs will be what is displayed as the link
+
+function iconic_account_menu_items( $items ) {
+ 
+    $items['manage-jobs'] = __( 'Your Jobs', 'iconic' );
+    $items['orders'] = __( 'Your Donations', 'iconic' );
+    $items['edit-account'] = __( 'Your Account', 'iconic' );
+    $items['customer-logout'] = __( 'Logout', 'iconic' );
+ 
+    return $items;
+ 
+}
+ 
+add_filter( 'woocommerce_account_menu_items', 'iconic_account_menu_items', 0, 0 );
