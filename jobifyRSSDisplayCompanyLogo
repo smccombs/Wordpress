@@ -1,0 +1,15 @@
+<?Php
+
+// 6-12-17 smccombs
+// By default the jobify wordpress theme does not display the job posts company logo url.
+
+// add this to your themes child functions.php file.
+
+function add_my_rss_node() {
+	global $post;
+	if(has_post_thumbnail($post->ID)):
+		echo"<companyLogo>".wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'small' )[0]."</companyLogo>";
+	endif;
+}
+
+add_action('rss2_item', 'add_my_rss_node');
