@@ -1,0 +1,31 @@
+<?Php
+
+// This was for Jobify Theme to auto approve users job posts if admin decides to allow it based by setting user role to Job Poster.
+
+// Add a role to change approved users to.
+
+add_role('jobposter', __(
+    'Job Poster'),
+    array(
+        'read'              => true, // Allows a user to read
+        'create_posts'      => true, // Allows user to create new posts
+        'edit_posts'        => true, // Allows user to edit their own posts
+        'publish_posts'     => true, // Allows the user to publish posts
+        )
+);
+
+// When job is submitted to website it checks role, based on role it auto publishes the job post.
+
+function set_job_post_status_by_user_role( $status, $job ) {
+	if ( ! $user = wp_get_current_user() ) {
+		return $status;
+	}
+	
+	if ( in_array( 'jobposter', (array) $user->roles ) ) {
+		return 'publish';
+	}
+
+	return $status;
+}
+
+add_filter( 'submit_job_post_status', 'set_job_post_status_by_user_role', 10, 2 );
