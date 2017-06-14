@@ -29,3 +29,13 @@ function set_job_post_status_by_user_role( $status, $job ) {
 }
 
 add_filter( 'submit_job_post_status', 'set_job_post_status_by_user_role', 10, 2 );
+
+// To make sure new user role can not access the black admin bar
+
+function remove_admin_bar() {
+  if (!current_user_can('administrator') && !is_admin()) {
+    show_admin_bar(false);
+  }
+}
+
+add_action('after_setup_theme', 'remove_admin_bar');
