@@ -1,0 +1,16 @@
+<?Php
+
+// 6-28-17 smccombs
+// By default the jobify wordpress theme does not display if the job post is featured.
+
+// add this to your themes child functions.php file.
+
+function add_my_rss_node() {
+	global $post;
+
+	if(get_post_meta( $post->ID, '_featured' )){
+		echo"<featured>".get_post_meta( $post->ID, '_featured' )[0]."</featured>";
+	}
+}
+
+add_action('rss2_item', 'add_my_rss_node');
