@@ -10,13 +10,13 @@
 
 // $items['manage-jobs']
 // This will be the third part of the URL example.com/myaccount/manage-jobs/
-// ( 'Your Jobs', 'woocommerce' )
+// ( 'Jobs & Applications', 'woocommerce' )
 // Your Jobs will be what is displayed as the link
 
 function new_account_menu_items( $items ) {
  
-    $items['manage-jobs'] = __( 'Your Jobs', 'woocommerce' );
-    $items['orders'] = __( 'Your Donations', 'woocommerce' );
+    $items['manage-jobs'] = __( 'Jobs & Applications', 'woocommerce' );
+    $items['orders'] = __( 'Advertising', 'woocommerce' );
     $items['edit-account'] = __( 'Your Account', 'woocommerce' );
     $items['customer-logout'] = __( 'Logout', 'woocommerce' );
  
