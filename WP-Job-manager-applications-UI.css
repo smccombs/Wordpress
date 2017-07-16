@@ -1,0 +1,23 @@
+/*
+7-15-17 smccombs
+This is a mod for WP Job Manager wordpress plgin with applications plugin active
+
+Normaly on the job listings page each listing has a simple digit at the end of the row that
+links to the applications page associated to it. This css edit will make the plain text link
+look like a button which will make it easier to see and understand that it is actsually a link.
+*/
+
+.applications a {
+  font: 700 18px/normal Montserrat,sans-serif;
+  background-color: #324ab5;
+  color: #fff;
+  border: 2px solid #324ab5;
+  border-radius: 4px;
+  padding: 10px 40px;
+}
+
+.applications a:hover {
+  color: #324ab5;
+  background-color: white;
+  text-decoration: none;
+}
